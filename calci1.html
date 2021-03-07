@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <title>Calculator</title>
+    <style>
+        h1
+        {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+        button:hover{background-color: orangered;}
+        button
+        {
+            width:57px;
+            height: 58px;
+            color: white;
+            background-color: #17a2b8;
+            border-radius: 12px;
+            border:none;    
+        }
+
+        #inp
+        {
+            border: 5px solid black;
+            width:50%;
+            font-size: x-large;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        
+        body
+        {
+            background-image: url("numbers.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+        }
+        table
+        {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <script>
+        function f(i)
+        {
+            var s = document.getElementById('inp').value;
+            document.getElementById('inp').value = s+i; // displays the sum value in the Sum field
+        }
+        
+        function c()
+        {
+            document.getElementById('inp').value = "";
+        }
+        
+        function equals()
+        {
+            var s = document.getElementById('inp').value;
+           
+            var numbers =  []; // stores all numbers
+            var operators = []; // stores all operators
+            var substr = ""
+            var p = 0;
+            var q = 0
+            for (var i = 0; i<s.length; i++)
+            {
+                if(isNaN(parseInt(s[i])))
+                {
+                    numbers[q] = substr;
+                    substr = "";
+                    q+=1
+                    operators[p]=s[i];
+                    p+=1;
+
+                }
+                else
+                {
+                    substr += s[i];
+                    
+                }
+            }
+            
+            numbers[q] = substr;
+
+            var total = 0;
+            for (var i = 0; i<operators.length; i++)
+            {
+                if (operators[i]=='+')
+                {
+                    total = parseInt(numbers[0])+parseInt(numbers[1]);
+                    numbers.shift(); // removes the first element
+                    numbers[0] = total;
+                }
+                if (operators[i]=='-')
+                {
+                    total = parseInt(numbers[0])-parseInt(numbers[1]);
+                    numbers.shift();
+                    numbers[0] = total;
+                }
+                if (operators[i]=='*')
+                {
+                    total = parseInt(numbers[0])*parseInt(numbers[1]);
+                    numbers.shift();
+                    numbers[0] = total;
+                }
+                if (operators[i]=='/')
+                {
+                    total = parseInt(numbers[0])/parseInt(numbers[1]);
+                    numbers.shift();
+                    numbers[0] = total;
+                }
+                
+                
+            }
+            
+            console.log(numbers);
+            console.log(operators);
+            document.getElementById('inp').value = s+" = "+total;
+         
+        }
+           
+        
+
+    </script>
+</head>
+<body>
+    
+    <h1><emp><u>Calculator</u></emp></h1>
+    <div class = "container">
+    
+    <input type = "text" name = "enter_val" id = "inp">
+    
+    
+        
+    <table>
+        <tr>
+            <td>
+                <button class="button" onclick = "f(7)">7</button>
+            </td>
+            <td>
+                <button class="button" onclick = "f(8)">8</button>
+            </td>
+            <td>
+                <button class="button" onclick = "f(9)">9</button>
+            </td>
+            <td>
+                <button class="button" onclick = "f('-')">-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="button" onclick = "f(4)">4</button>
+            </td>
+            <td>
+                <button class="button" onclick = "f(5)">5</button>
+            </td>
+            <td>
+                <button class="button" onclick = "f(6)">6</button>
+            </td>
+            <td>
+                <button class="button" onclick = "f('+')">+</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="button" onclick = "f(1)">1</button>
+            </td>
+            <td>
+                <button class="button" onclick = "f(2)">2</button>
+            </td>
+            <td>
+                <button class="button" onclick = "f(3)">3</button>
+            </td>
+            <td>
+                <button class="button" onclick = "f('*')">*</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="button" onclick = "c()">C</button>
+            </td>
+            <td>
+                <button class="button" onclick = "f(0)">0</button>
+            </td>
+            <td>
+                <button class="button" onclick = "equals()">=</button>
+            </td>
+            <td>
+                <button class="button" onclick = "f('/')">/</button>
+            </td>
+        </tr>
+    </table>
+    <br>
+
+</div>
+
+    
+</body>
+</html>
