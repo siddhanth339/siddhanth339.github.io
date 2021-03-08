@@ -1,0 +1,86 @@
+body
+{
+    margin: 0;
+    padding: 0;
+}
+div 
+{ 
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.logo
+{
+    position: relative;
+    margin-top: 89px;
+    padding-top: 109px;
+}
+
+
+.in input
+{
+    border: 1px solid rgb(190, 188, 188);
+    border-radius: 20px;
+    padding: 10px 8px;
+    font-size: 16px;
+    width: 584px;
+}
+.in input:hover
+{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.in input:focus
+{
+    outline: none;
+}
+
+.sub
+{
+    input
+    {
+        background-color: #f2f2f2;
+        border: 1px solid #f2f2f2;
+        border-radius: 4px;
+        color: #5F6368;
+        font-family: arial, sans-serif;
+        font-size: 14px;
+        margin: 11px 4px;
+        padding: 0 16px;
+        height: 36px;
+        min-width: 54px;
+        text-align: center;
+    }
+    input:hover
+    {
+        color: black;
+        border: 1px solid #a8aaad;
+    }
+}
+
+.links
+{
+    position: relative;
+    font-size: 20px;
+    a[href = "imageSearch.html"]
+    {
+        position: absolute;
+        top: 8px;
+        right: 250px;
+    }
+    a[href = "advancedSearch.html"], a[href = "index.html"]
+    {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+    }     
+}
+.logo-subtext
+{
+    color: #4285f4;
+    font-size: 16px;
+    font-family: arial, sans-serif;
+    position: absolute;
+    left: 870px;
+    top: 190px;
+}
